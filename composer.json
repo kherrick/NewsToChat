@@ -1,0 +1,13 @@
+{
+    "require": {
+        "cilex/cilex": "dev-master",
+        "doctrine/orm": "*",
+        "keeguon/oauth2-php": ">=1.0.0",
+        "gorkalaucirica/hipchat-v2-api-client": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "NewsToChat\\": "src/NewsToChat/"
+        }
+    }
+}
