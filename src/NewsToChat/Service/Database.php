@@ -43,8 +43,7 @@ class Database
     {
         $article = new Article;
 
-        $article->setDate($this->data->getDate());
-        $article->setTime($this->data->getTime());
+        $article->setDateTime($this->data->getDateTime());
         $article->setUrl($this->data->getUrl());
         $article->setDescription($this->data->getDescription());
         $article->setExpired($this->data->getExpired());
@@ -95,16 +94,14 @@ class Database
 
         foreach ($articles as $article) {
             $id = $article->getId();
-            $date = $article->getDate();
-            $time = $article->getTime();
+            $date = $article->getDateTime();
             $url = $article->getUrl();
             $description = $article->getDescription();
             $expired = $article->getExpired();
 
             $content = [
                 $id => [
-                    'DATE' => $date,
-                    'TIME' => $time,
+                    'DATETIME' => $date,
                     'URL' => $url,
                     'DESCRIPTION' => $description,
                     'EXPIRED' => $expired,

@@ -78,8 +78,7 @@ class SoylentNewsRSSBot
                 preg_match($regexTime, $article, $time);
 
                 $data[] = [
-                    'date' => $date,
-                    'time' => $time[0],
+                    'dateTime' => "$date $time[0]",
                     'url' => substr($url[0], 0, -1),
                     'description' => $description
                 ];

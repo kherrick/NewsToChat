@@ -7,8 +7,7 @@
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="date" type="date" />
-        <field name="time" type="time" />
+        <field name="dateTime" type="datetime" />
         <field name="url" type="string" />
         <field name="description" type="string" />
         <field name="expired" type="boolean" />

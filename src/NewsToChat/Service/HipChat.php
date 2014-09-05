@@ -65,7 +65,7 @@ class HipChat {
         }
     }
 
-    public  function getAllRooms()
+    public function getAllRooms()
     {
         $client = $this->setupClient();
         $roomApi = new RoomAPI($client);

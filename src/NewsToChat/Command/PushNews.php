@@ -5,8 +5,6 @@ use Cilex\Command\Command;
 use Doctrine\ORM\EntityManager;
 use NewsToChat\Service\HipChat;
 use NewsToChat\Service\Database;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -51,8 +49,7 @@ class PushNews extends Command
 
         if ($results) {
             $id = $results[0]->getId();
-            $date  = $results[0]->getDate();
-            $time  = date('h:i:s a', strtotime($results[0]->getTime()));
+            $dateTime  = $results[0]->getDateTime();
             $url  = $results[0]->getUrl();
             $description  = $results[0]->getDescription();
 
@@ -61,7 +58,7 @@ class PushNews extends Command
                 $container['database']->update($id, 'expired', true);
             }
 
-            $prefix = '[NewsToChat - found on $date at $time]: ';
+            $prefix = "[NewsToChat - found on $dateTime]: ";
 
             $userContent = "\"$description\" @ $url";
             // $roomContent = "\"$description\" @ <a href=\"$url\">$url</a>.";
@@ -73,10 +70,10 @@ class PushNews extends Command
 
             $output->writeln($userContent);
             // $output->writeln($roomContent);
+
+            return;
         }
 
-        if (!$results) {
-            $output->writeln('No results...');
-        }
+        $output->writeln('No results...');
     }
 }

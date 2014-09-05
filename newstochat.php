@@ -15,6 +15,7 @@ $token = $settings['global']['token'];
 $sources = $settings['sources'];
 $app = new \Cilex\Application($name, $version);
 
-$app->command(new PushNews($entityManager, $token));
 $app->command(new PullNews($entityManager, $sources));
+$app->command(new PushNews($entityManager, $token));
+
 $app->run();

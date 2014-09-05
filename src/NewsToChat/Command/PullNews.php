@@ -6,9 +6,7 @@ use Doctrine\ORM\EntityManager;
 use NewsToChat\Entity\Article;
 use NewsToChat\NewsGrabber;
 use NewsToChat\Service\Database;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class PullNews extends Command
@@ -76,8 +74,7 @@ class PullNews extends Command
             $container = new \Pimple();
             $container['entityManager'] = $this->entityManager;
             $container['data'] = new Article(
-                $news[$i]['date'],
-                $news[$i]['time'],
+                $news[$i]['dateTime'],
                 $url,
                 $news[$i]['description'],
                 false

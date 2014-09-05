@@ -11,12 +11,7 @@ class Article
     /**
      * @var string
      */
-    protected $date;
-
-    /**
-     * @var string
-     */
-    protected $time;
+    protected $dateTime;
 
     /**
      * @var string
@@ -33,10 +28,9 @@ class Article
      */
     protected $expired;
 
-    public function __construct($date = null, $time = null, $url = null, $description = null, $expired = null)
+    public function __construct($dateTime = null, $url = null, $description = null, $expired = null)
     {
-        $this->date = date_create_from_format('Y-m-d', $date);
-        $this->time = date_create_from_format('H:i:s', $time);
+        $this->dateTime = date_create_from_format('Y-m-d H:i:s', $dateTime);
         $this->url = $url;
         $this->description = $description;
         $this->expired = $expired;
@@ -47,24 +41,14 @@ class Article
         return $this->id;
     }
 
-    public function getDate()
+    public function getDateTime()
     {
-        return $this->date->format('Y-m-d');
+        return $this->dateTime->format('Y-m-d H:i:s');
     }
 
-    public function setDate($date)
+    public function setDateTime($dateTime)
     {
-        $this->date = date_create_from_format('Y-m-d', $date);
-    }
-
-    public function getTime()
-    {
-        return $this->time->format('H:i:s');
-    }
-
-    public function setTime($time)
-    {
-        $this->time = date_create_from_format('H:i:s', $time);
+        $this->dateTime = date_create_from_format('Y-m-d H:i:s', $dateTime);
     }
 
     public function getUrl()
