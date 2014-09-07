@@ -3,6 +3,10 @@ namespace NewsToChat;
 
 class NewsGrabber
 {
+    /**
+     * @param  array $sources
+     * @return array
+     */
     public function __invoke($sources)
     {
         foreach ($sources as $source => $url) {

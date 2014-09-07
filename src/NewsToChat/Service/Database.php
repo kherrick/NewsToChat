@@ -1,15 +1,26 @@
 <?php
 namespace NewsToChat\Service;
 
+use Doctrine\ORM\EntityManager;
 use NewsToChat\Entity\Article;
 
 class Database
 {
-
+    /**
+     * @var EntityManager
+     */
     private $entityManager;
+
+    /**
+     * @var Article
+     */
     private $data;
 
-    public function __construct($entityManager = null, $data = null)
+    /**
+     * @param EntityManager $entityManager
+     * @param Article       $data
+     */
+    public function __construct(EntityManager $entityManager = null, Article $data = null)
     {
         $this->entityManager = $entityManager;
         $this->data = $data;
@@ -28,6 +39,11 @@ class Database
         return $result;
     }
 
+    /**
+     * @param  integer $id
+     * @param  string  $getter
+     * @return mixed|null
+     */
     public function select($id, $getter)
     {
         $article = $this->entityManager->find('NewsToChat\Entity\Article', $id);
@@ -39,6 +55,9 @@ class Database
         return $article->{"get$getter"}();
     }
 
+    /**
+     * @return integer
+     */
     public function insert()
     {
         $article = new Article;
@@ -54,6 +73,10 @@ class Database
         return $article->getId();
     }
 
+    /**
+     * @param  integer $id
+     * @return boolean
+     */
     public function drop($id)
     {
         $entity = $this->entityManager->find('NewsToChat\Entity\Article', $id);
@@ -69,6 +92,12 @@ class Database
         return true;
     }
 
+    /**
+     * @param  integer $id
+     * @param  string  $setter
+     * @param  string  $value
+     * @return boolean
+     */
     public function update($id, $setter, $value)
     {
         $article = $this->entityManager->find('NewsToChat\Entity\Article', $id);
@@ -86,6 +115,9 @@ class Database
         return true;
     }
 
+    /**
+     * @return array
+     */
     public function show()
     {
         $articleRepository = $this->entityManager->getRepository('NewsToChat\Entity\Article');

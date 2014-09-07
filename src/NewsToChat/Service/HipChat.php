@@ -8,18 +8,24 @@ use GorkaLaucirica\HipchatAPIv2Client\API\UserAPI;
 use GorkaLaucirica\HipchatAPIv2Client\API\RoomAPI;
 use GorkaLaucirica\HipchatAPIv2Client\Model\Message;
 
-        use Buzz\Browser;
-        use Buzz\Client\Curl;
-
 class HipChat {
 
+    /**
+     * @var string
+     */
     private $token;
 
+    /**
+     * @param string $token
+     */
     public function __construct($token)
     {
         $this->token = $token;
     }
 
+    /**
+     * @return Client
+     */
     private function setupClient()
     {
         $auth = new OAuth2($this->token);
@@ -65,6 +71,9 @@ class HipChat {
         }
     }
 
+    /**
+     * @return array
+     */
     public function getAllRooms()
     {
         $client = $this->setupClient();
@@ -73,6 +82,9 @@ class HipChat {
         return $roomApi->getRooms();
     }
 
+    /**
+     * @return array
+     */
     public function getAllUsers()
     {
         $maxGroupResults = 100;
@@ -95,5 +107,4 @@ class HipChat {
 
         return $names;
     }
-
 }

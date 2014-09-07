@@ -5,9 +5,19 @@ use DOMDocument;
 
 class SoylentNewsRSSBot
 {
+    /**
+     * @var string
+     */
     private $url;
+
+    /**
+     * @var array
+     */
     private $pageUrls;
 
+    /**
+     * @param string $url
+     */
     public function __construct($url)
     {
         $this->url = $url;

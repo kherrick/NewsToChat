@@ -6,15 +6,26 @@ use Doctrine\ORM\EntityManager;
 use NewsToChat\Entity\Article;
 use NewsToChat\NewsGrabber;
 use NewsToChat\Service\Database;
+use Pimple;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class PullNews extends Command
 {
     /**
+     * @var string
+     */
+    private $commandName;
+
+    /**
      * @var EntityManager
      */
     private $entityManager;
+
+    /**
+     * @var string
+     */
+    private $runtime;
 
     /**
      * @var array
@@ -23,14 +34,17 @@ class PullNews extends Command
 
     /**
      * @param EntityManager $entityManager
+     * @param string        $runtime
      * @param array         $sources
      */
-    public function __construct(EntityManager $entityManager, array $sources)
+    public function __construct(EntityManager $entityManager, $runtime, array $sources)
     {
         parent::__construct();
 
         $this->entityManager = $entityManager;
+        $this->runtime = $runtime;
         $this->sources = $sources;
+        $this->commandName = $this->getName();
     }
 
     /**
@@ -46,13 +60,15 @@ class PullNews extends Command
     }
 
     /**
-     * kick off hte execution of the command
+     * kick off the execution of the command
      * @param  InputInterface  $input  [description]
      * @param  OutputInterface $output [description]
      * @return null
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $output->writeln("Running $this->commandName on $this->runtime...");
+
         $newsGrabber = new NewsGrabber;
         $news = $newsGrabber($this->sources);
 
@@ -71,7 +87,7 @@ class PullNews extends Command
     {
         for ($i=0; $i < count($news); $i++) {
             $url = $news[$i]['url'];
-            $container = new \Pimple();
+            $container = new Pimple();
             $container['entityManager'] = $this->entityManager;
             $container['data'] = new Article(
                 $news[$i]['dateTime'],
