@@ -28,6 +28,7 @@ class RSS
         $feed = new SimplePie();
         $feed->enable_cache(true);
         $feed->set_feed_url($this->urls);
+        $feed->set_cache_duration(7200);
         $feed->init();
         $feed->handle_content_type();
 
