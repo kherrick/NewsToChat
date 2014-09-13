@@ -82,7 +82,8 @@ class SoylentNewsRSSBot
             if (preg_match($regexUrl, $article, $url) && !preg_match($regexHead, $article)) {
                 $description = explode('</span>', $article);
                 $description = explode('<a', $description[1]);
-                $description = trim($description[0]);
+                $description = explode(']', $description[0]);
+                $description = trim($description[1]);
                 $description = substr($description, 0, strlen($description) - 2);
 
                 preg_match($regexTime, $article, $time);

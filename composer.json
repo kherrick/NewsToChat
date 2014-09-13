@@ -1,8 +1,9 @@
 {
     "require": {
-        "cilex/cilex": "dev-master",
         "doctrine/orm": "*",
+        "cilex/cilex": "dev-master",
         "keeguon/oauth2-php": ">=1.0.0",
+        "simplepie/simplepie": "dev-master",
         "gorkalaucirica/hipchat-v2-api-client": "dev-master"
     },
     "autoload": {

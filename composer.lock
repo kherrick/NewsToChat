@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2a75bdc23ddf56052160646d582423df",
+    "hash": "1f957fc4e81bd57ee27822291695a880",
     "packages": [
         {
             "name": "cilex/cilex",
@@ -728,16 +728,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "4.2.1",
+            "version": "4.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "47ca212e985d962b3cbd67675eec54bb72d66062"
+                "reference": "9c4fbbf6457768f5036fbd88f1229f3fca812a5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/47ca212e985d962b3cbd67675eec54bb72d66062",
-                "reference": "47ca212e985d962b3cbd67675eec54bb72d66062",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9c4fbbf6457768f5036fbd88f1229f3fca812a5d",
+                "reference": "9c4fbbf6457768f5036fbd88f1229f3fca812a5d",
                 "shasum": ""
             },
             "require": {
@@ -789,7 +789,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-20 05:30:12"
+            "time": "2014-09-08 22:11:58"
         },
         {
             "name": "guzzlehttp/streams",
@@ -997,6 +997,60 @@
             "time": "2013-11-22 08:30:29"
         },
         {
+            "name": "simplepie/simplepie",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/simplepie/simplepie.git",
+                "reference": "9a9faaa0d563426cf6d897c169373c5b62f1b252"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/simplepie/simplepie/zipball/9a9faaa0d563426cf6d897c169373c5b62f1b252",
+                "reference": "9a9faaa0d563426cf6d897c169373c5b62f1b252",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SimplePie": "library"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Parman",
+                    "homepage": "http://ryanparman.com/",
+                    "role": "Creator, alumnus developer"
+                },
+                {
+                    "name": "Geoffrey Sneddon",
+                    "homepage": "http://gsnedders.com/",
+                    "role": "Alumnus developer"
+                },
+                {
+                    "name": "Ryan McCue",
+                    "email": "me@ryanmccue.info",
+                    "homepage": "http://ryanmccue.info/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple Atom/RSS parsing library for PHP",
+            "homepage": "http://simplepie.org/",
+            "keywords": [
+                "atom",
+                "feeds",
+                "rss"
+            ],
+            "time": "2014-04-28 12:50:39"
+        },
+        {
             "name": "symfony/console",
             "version": "v2.5.4",
             "target-dir": "Symfony/Component/Console",
@@ -1155,6 +1209,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "cilex/cilex": 20,
+        "simplepie/simplepie": 20,
         "gorkalaucirica/hipchat-v2-api-client": 20
     },
     "prefer-stable": false,

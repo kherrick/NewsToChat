@@ -12,9 +12,25 @@ class NewsGrabber
         foreach ($sources as $source => $url) {
             $transformerClass = 'NewsToChat\\Transformer\\' . $source;
             $transformer = new $transformerClass($url);
-            $data[] = $transformer->transform();
+            $result[] = $transformer->transform();
         }
 
-        return $data;
+        // merge an arbitrary number of article arrays into a single array
+        foreach ($result as $articles) {
+            foreach ($articles as $article) {
+                $mergedArticles[] = $article;
+            }
+        }
+
+        // prepare to sort the news
+        foreach ($mergedArticles as $key => $value) {
+            $data[$key] = $value['dateTime'];
+        }
+
+        // sort the news by date
+        array_multisort($data, SORT_ASC, $mergedArticles);
+
+        // print_r($mergedArticles); die();
+        return $mergedArticles;
     }
 }

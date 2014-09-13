@@ -72,9 +72,7 @@ class PullNews extends Command
         $newsGrabber = new NewsGrabber;
         $news = $newsGrabber($this->sources);
 
-        for ($i=0; $i < count($news); $i++) {
-            $this->unbundleNewsSourceAndAppendToDatabase($news[$i], $output);
-        }
+        $this->unbundleNewsSourceAndAppendToDatabase($news, $output);
     }
 
     /**
