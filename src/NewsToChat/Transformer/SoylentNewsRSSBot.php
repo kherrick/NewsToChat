@@ -58,10 +58,21 @@ class SoylentNewsRSSBot
             $articles = explode('<br />', $content);
             $date = substr($url, -15, -5);
             $data[] = $this->buildPageData($articles, $date, $url);
-
         }
 
-        return array_merge($data[0], $data[1]);
+        if (!empty($data[0]) && !empty($data[1])) {
+            return array_merge($data[0], $data[1]);
+        }
+
+        if (!empty($data[0])) {
+            return $data[0];
+        }
+
+        if (!empty($data[1])) {
+            return $data[1];
+        }
+
+        return [];
     }
 
     /**
@@ -77,6 +88,7 @@ class SoylentNewsRSSBot
         $regexHead = "/DOCTYPE/";
         $regexUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
         $regexTime = "/(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)/";
+        $data = [];
 
         foreach ($articles as $article) {
             if (preg_match($regexUrl, $article, $url) && !preg_match($regexHead, $article)) {

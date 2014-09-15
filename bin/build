@@ -11,23 +11,23 @@ declare -a errors
 if [ -d vendor ]; then
     errors[${#errors[*]}]='vendor/'
 else
-	echo 'Running: bin/composer install'
-	bin/composer install
+    echo 'Running: bin/composer install'
+    bin/composer install
 fi
 
 #check for a database
 if [ -f databases/db.sqlite ]; then
     errors[${#errors[*]}]='databases/db.sqlite'
 else
-	echo 'Running: bin/doctrine/init-database.php...'
-	bin/doctrine/init-database.php
+    echo 'Running: bin/database/init'
+    bin/database/init
 fi
 
 #display errors
 if [ ${#errors[*]} -gt 0 ]; then
-	IFS=$'\n'
-	echo
-	echo Resources not built because they already exist:
+    IFS=$'\n'
+    echo
+    echo Resources not built because they already exist:
     echo
 
     for error in ${errors[*]}; do

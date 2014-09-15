@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+helper ()
+{
+  if [ $# -gt 0 ] && [ $1 != "-" ]; then
+    echo $0: illegal option -- $@
+  fi
+
+  echo "usage: $0 commands"
+  echo
+  echo "Commands:"
+  echo "  destroy    stops and deletes all traces of the vagrant machine"
+  echo "  help       shows this helper text"
+  echo "  provision  provisions the vagrant machine"
+  echo "  ssh        connects to machine via SSH"
+  echo "  start      starts and provisions the vagrant environment"
+  echo "  status     outputs status of the vagrant machine"
+  echo "  stop       stops the vagrant machine"
+  echo
+  echo "*NOTE*"
+  echo "  By default, if a common command is not specified, the script will pass"
+  echo "  the arguments to the virtual machine and execute them from within the"
+  echo "  /vagrant folder (e.g. inside the project root)"
+  echo
+
+  exit 1
+}
+
+bash_source="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $bash_source/..
+
+if [ $# -eq 0 ]; then
+  helper
+else
+  case $1 in
+    destroy)
+      vagrant destroy -f
+      ;;
+    help|'/?'|'-h'|'/h'|'--help'|'/help')
+      helper
+      ;;
+    provision)
+      vagrant provision
+      ;;
+    ssh)
+      vagrant ssh
+      ;;
+    start|up)
+      vagrant up
+      ;;
+    status)
+      vagrant status
+      ;;
+    stop|halt)
+      vagrant halt
+      ;;
+    *)
+      vagrant ssh -- "cd /vagrant; $@"
+      ;;
+  esac
+fi
+

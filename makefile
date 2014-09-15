@@ -1,3 +1,3 @@
 init:
-	@bin/init.sh
+	@bin/build
 
