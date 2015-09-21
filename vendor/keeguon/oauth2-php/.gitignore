@@ -1,0 +1,12 @@
+# Mac files
+.DS_Store
+*.sw[a-z]
+
+# Ignore potentially sensitive phpunit file
+phpunit.xml
+
+# Ignore composer generated files
+composer.phar
+composer.lock
+composer-test.lock
+vendor/
