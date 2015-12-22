@@ -1,6 +1,10 @@
 NewsToChat
 ========
 
+NewsToChat gathers your favorite articles across the web and posts a link to them in HipChat.
+
+![alt tag](https://github.com/kherrick/NewsToChat/blob/master/images/NewsToChat.png)
+
 ###Development
 * Get the required dependencies:
   * `Download Vagrant from:`
