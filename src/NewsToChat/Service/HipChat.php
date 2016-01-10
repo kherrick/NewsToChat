@@ -2,14 +2,14 @@
 
 namespace NewsToChat\Service;
 
-use GorkaLaucirica\HipchatAPIv2Client\Client;
-use GorkaLaucirica\HipchatAPIv2Client\Auth\OAuth2;
-use GorkaLaucirica\HipchatAPIv2Client\API\UserAPI;
 use GorkaLaucirica\HipchatAPIv2Client\API\RoomAPI;
+use GorkaLaucirica\HipchatAPIv2Client\API\UserAPI;
+use GorkaLaucirica\HipchatAPIv2Client\Auth\OAuth2;
+use GorkaLaucirica\HipchatAPIv2Client\Client;
 use GorkaLaucirica\HipchatAPIv2Client\Model\Message;
 
-class HipChat {
-
+class HipChat
+{
     /**
      * @var string
      */
@@ -94,8 +94,8 @@ class HipChat {
 
         for ($startIndex = 0; $startIndex < $maxTotalResults; $startIndex = $startIndex + $maxGroupResults) {
             $userGroup[] = $userApi->getAllUsers([
-                "start-index" => $startIndex,
-                "max-results" => $maxGroupResults
+                'start-index' => $startIndex,
+                'max-results' => $maxGroupResults
             ]);
         }
 

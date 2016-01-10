@@ -1,4 +1,5 @@
 <?php
+
 namespace NewsToChat\Transformer;
 
 use DOMDocument;
@@ -36,7 +37,7 @@ class SoylentNewsRSSBot
         @$domDocument->loadHTMLFile($this->url);
 
         foreach ($domDocument->getElementsByTagName('a') as $link) {
-            $newsLinks[] = array('url' => $link->getAttribute('href'), 'text' => $link->nodeValue);
+            $newsLinks[] = ['url' => $link->getAttribute('href'), 'text' => $link->nodeValue];
         }
 
         $currentNewsLinkIndex = count($newsLinks) - 1;
@@ -85,7 +86,7 @@ class SoylentNewsRSSBot
      */
     private function buildPageData(array $articles, $date, $url)
     {
-        $regexHead = "/DOCTYPE/";
+        $regexHead = '/DOCTYPE/';
         $regexUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
         $regexTime = "/(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)/";
         $data = [];

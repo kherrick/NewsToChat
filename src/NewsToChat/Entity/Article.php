@@ -1,4 +1,5 @@
 <?php
+
 namespace NewsToChat\Entity;
 
 class Article
@@ -24,7 +25,7 @@ class Article
     protected $description;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $expired;
 
@@ -37,7 +38,7 @@ class Article
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {

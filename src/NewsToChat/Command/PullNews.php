@@ -1,4 +1,5 @@
 <?php
+
 namespace NewsToChat\Command;
 
 use Cilex\Command\Command;
@@ -83,7 +84,7 @@ class PullNews extends Command
      */
     private function unbundleNewsSourceAndAppendToDatabase(array $news, OutputInterface $output)
     {
-        for ($i=0; $i < count($news); $i++) {
+        for ($i = 0; $i < count($news); $i++) {
             $url = $news[$i]['url'];
             $container = new Pimple();
             $container['entityManager'] = $this->entityManager;

@@ -1,10 +1,11 @@
 <?php
+
 namespace NewsToChat\Command;
 
-use PHPUnit_Framework_TestCase;
 use Mockery;
+use PHPUnit_Framework_TestCase;
 
-class ClassNameTest extends PHPUnit_Framework_TestCase
+class PullNewsTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @return null
@@ -42,7 +43,7 @@ class ClassNameTest extends PHPUnit_Framework_TestCase
             $this->getSourcesFixture()
         );
 
-        $this->assertEquals('pullnews', $command->getName(), "The pullnews command name was not set properly.\n");
+        $this->assertSame('pullnews', $command->getName(), "The pullnews command name was not set properly.\n");
     }
 
     public function testConfigureSetsDescription()
@@ -53,7 +54,7 @@ class ClassNameTest extends PHPUnit_Framework_TestCase
             $this->getSourcesFixture()
         );
 
-        $this->assertEquals('Pull the news', $command->getDescription(), "The pullnews command description was not set properly.\n");
+        $this->assertSame('Pull the news', $command->getDescription(), "The pullnews command description was not set properly.\n");
     }
 
     public function testConfigureSetsHelp()
@@ -64,6 +65,6 @@ class ClassNameTest extends PHPUnit_Framework_TestCase
             $this->getSourcesFixture()
         );
 
-        $this->assertEquals('e.g. ./newstochat.php pullnews', $command->getHelp(), "The pullnews command help was not set properly.\n");
+        $this->assertSame('e.g. ./newstochat.php pullnews', $command->getHelp(), "The pullnews command help was not set properly.\n");
     }
 }

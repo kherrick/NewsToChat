@@ -1,4 +1,5 @@
 <?php
+
 namespace NewsToChat\Command;
 
 use Cilex\Command\Command;
@@ -75,7 +76,7 @@ class Maintenance extends Command
             return;
         }
 
-        $output->writeln("No old articles expired...");
+        $output->writeln('No old articles expired...');
     }
 
     /**
@@ -87,7 +88,7 @@ class Maintenance extends Command
     private function expireOlderArticles(Pimple $container, array $articles, OutputInterface $output)
     {
         //300 articles per 5 minutes = one every 5 minutes for 25 hours
-        $articleCount = count($articles)-1;
+        $articleCount = count($articles) - 1;
 
         if ($articleCount >= 300) {
             $offset = $articleCount - 300;

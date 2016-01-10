@@ -1,7 +1,7 @@
 <?php
+
 namespace NewsToChat\Transformer;
 
-use DOMDocument;
 use SimplePie;
 
 class RSS

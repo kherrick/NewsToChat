@@ -1,4 +1,5 @@
 <?php
+
 namespace NewsToChat\Service;
 
 use Doctrine\ORM\EntityManager;
@@ -40,7 +41,7 @@ class Database
     }
 
     /**
-     * @param  integer $id
+     * @param  int $id
      * @param  string  $getter
      * @return mixed|null
      */
@@ -49,14 +50,14 @@ class Database
         $article = $this->entityManager->find('NewsToChat\Entity\Article', $id);
 
         if ($article === null) {
-            echo "No article found.\n";
+            print "No article found.\n";
         }
 
         return $article->{"get$getter"}();
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function insert()
     {
@@ -74,8 +75,8 @@ class Database
     }
 
     /**
-     * @param  integer $id
-     * @return boolean
+     * @param  int $id
+     * @return bool
      */
     public function drop($id)
     {
@@ -93,17 +94,17 @@ class Database
     }
 
     /**
-     * @param  integer $id
+     * @param  int $id
      * @param  string  $setter
      * @param  string  $value
-     * @return boolean
+     * @return bool
      */
     public function update($id, $setter, $value)
     {
         $article = $this->entityManager->find('NewsToChat\Entity\Article', $id);
 
         if ($article === null) {
-            echo "Article $id does not exist.\n";
+            print "Article $id does not exist.\n";
 
             return false;
         }

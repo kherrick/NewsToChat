@@ -1,10 +1,11 @@
 <?php
+
 namespace NewsToChat\Command;
 
 use Cilex\Command\Command;
 use Doctrine\ORM\EntityManager;
-use NewsToChat\Service\HipChat;
 use NewsToChat\Service\Database;
+use NewsToChat\Service\HipChat;
 use Pimple;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -82,7 +83,7 @@ class PushNews extends Command
             $url  = $articles[0]->getUrl();
             $description  = $articles[0]->getDescription();
 
-            if ($expire === "true") {
+            if ($expire === 'true') {
                 $output->writeln("Expiring the news article with ID: $id");
                 $container['database']->update($id, 'expired', true);
             }
