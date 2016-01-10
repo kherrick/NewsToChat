@@ -41,3 +41,5 @@ NewsToChat gathers your favorite articles across the web and posts a link to the
 * Example using the vagrant setup: `bin/vm ./newstochat.php pushnews -e true`
 
 * NewsToChat is a very basic script at this point, for example, it can be ran manually or queued up to execute via [cron jobs](https://github.com/kherrick/NewsToChat/blob/master/bin/cron).
+
+[![Build Status](https://travis-ci.org/kherrick/NewsToChat.svg?branch=master)](https://travis-ci.org/kherrick/NewsToChat)
