@@ -14,4 +14,8 @@ class php {
         ensure => installed
     }
 
+    package { 'php5-xdebug':
+        ensure => installed
+    }
+
 }
