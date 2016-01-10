@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+  bootstrap="bootstrap.php"
+  stopOnError="false"
+  stopOnFailure="false"
+  stopOnIncomplete="false"
+  stopOnSkipped="false"
+  >
+
+  <testsuites>
+    <testsuite name="tests">
+      <directory>.</directory>
+    </testsuite>
+  </testsuites>
+
+  <filter>
+    <whitelist processUncoveredFilesFromWhitelist="false">
+      <directory>../src</directory>
+    </whitelist>
+    <blacklist>
+      <directory>../vendor</directory>
+    </blacklist>
+  </filter>
+
+</phpunit>

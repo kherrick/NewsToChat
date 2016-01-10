@@ -1,14 +1,18 @@
 {
     "require": {
-        "doctrine/orm": "*",
-        "cilex/cilex": "dev-master",
-        "keeguon/oauth2-php": ">=1.0.0",
-        "simplepie/simplepie": "dev-master",
-        "gorkalaucirica/hipchat-v2-api-client": "dev-master"
+        "doctrine/orm": "^2.4.4",
+        "cilex/cilex": "dev-master#7acd965a609a56d0345e8b6071c261fbdb926cb5",
+        "keeguon/oauth2-php": "^1.3.5",
+        "simplepie/simplepie": "dev-master#9a9faaa0d563426cf6d897c169373c5b62f1b252",
+        "gorkalaucirica/hipchat-v2-api-client": "dev-master#31a9c548badad6bc47523ba810ded6264ab506d0"
     },
     "autoload": {
         "psr-4": {
             "NewsToChat\\": "src/NewsToChat/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8.21",
+        "mockery/mockery": "^0.9.4"
     }
 }

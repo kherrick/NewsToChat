@@ -55,7 +55,7 @@ class PullNews extends Command
     {
         $this
             ->setName('pullnews')
-            ->setDescription('Put the news')
+            ->setDescription('Pull the news')
             ->setHelp('e.g. ./newstochat.php pullnews');
     }
 

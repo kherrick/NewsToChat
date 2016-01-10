@@ -24,6 +24,10 @@ NewsToChat gathers your favorite articles across the web and posts a link to the
 * To login to the virtual machine
   * `$ bin/vm ssh`
 
+* Run unit tests, and see a coverage report:
+  * `bin/vm make test`
+  * `bin/vm make test-coverage`
+
 ###Hosting
 * Successfully hosted on:
   * Amazon AWS / Debian 7.6 / PHP 5.4.4
