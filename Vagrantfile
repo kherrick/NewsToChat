@@ -4,8 +4,8 @@
 Vagrant.configure("2") do |config|
   config.vm.hostname = "NewsToChat"
   config.vm.boot_timeout = 3600
-  config.vm.box = "debian-73-i386-virtualbox-puppet"
-  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/debian-73-i386-virtualbox-puppet.box"
+  config.vm.box = "puppetlabs/debian-7.8-32-puppet-enterprise"
+  config.vm.box_check_update = false
 
   config.vm.network :forwarded_port, guest: 8080, host: 8080
 
